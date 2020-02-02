@@ -1,25 +1,24 @@
-import {makeExecutableSchema} from 'graphql-tools';
-import {resolvers} from './resolvers';
 
-const typeDefs = `
+import { gql} from "apollo-server-express";
+
+const typeDefs = gql`
 
     type User {
     _id: ID!
     first_name: String
     last_name: String
     email: String!
-    password: String
     createdAt: Date
-    updateAt: Date
+    updatedAt: Date
     }
 
     
     scalar Date
     
     type Query {
-        getUser(email: String!): User
+        getUser: User
         getUsers: [User]
-        verifyToken(data: String!): String
+        verify: Boolean
     }
     
     input UserInput {
@@ -37,9 +36,4 @@ const typeDefs = `
     }
 `;
 
-const schema = makeExecutableSchema({
-    typeDefs,
-    resolvers
-});
-
-export default schema;
+export default typeDefs;

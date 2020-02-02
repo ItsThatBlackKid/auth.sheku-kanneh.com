@@ -14,7 +14,7 @@ type Mutation {
 type Query {
     getUser(email: String!): User
     getUsers: [User]
-    verifyToken(data: String!): String
+    verify: User
 }
 
 type User {
@@ -27,6 +27,11 @@ type User {
     updateAt: Date
 }
 
+enum CacheControlScope {
+    PRIVATE
+    PUBLIC
+}
+
 input UserInput {
     email: String!
     first_name: String
@@ -36,3 +41,6 @@ input UserInput {
 
 
 scalar Date
+
+"The `Upload` scalar type represents a file upload."
+scalar Upload

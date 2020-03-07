@@ -8,7 +8,6 @@ import {
     Card,
     CardActions,
     CardContent,
-    CardHeader,
     CircularProgress, Hidden,
     Link as MuiLink,
     TextField,
@@ -19,7 +18,6 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Icon from "@material-ui/core/Icon";
 
 import "../styles/sass/auth.sass"
-import Slide from "@material-ui/core/Slide";
 
 const useStyles = makeStyles(theme => ({
 
@@ -88,7 +86,7 @@ const Login = () => {
     });
 
     const signUpButton =
-        <MuiLink to={"/signup"} component={Link} underline={"none"}>
+        <MuiLink to={`/signup/?redirect=${redirect !== "/" && redirect}`} component={Link} underline={"none"}>
             <Button color={"secondary"} variant={"contained"}>
                 Sign up
             </Button>

@@ -16,7 +16,7 @@ import {
 } from '@material-ui/core'
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import CardMedia from "@material-ui/core/CardMedia";
 import {green} from "@material-ui/core/colors";
 
@@ -41,6 +41,11 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
+
+const useQueryParam = () => {
+    return new URLSearchParams(useLocation().search);
+};
+
 export default function SignUp() {
     document.title = "Auth - Sign up";
     const classes = useStyles();
@@ -58,6 +63,9 @@ export default function SignUp() {
         message: "",
         error: false
     });
+
+    const query = useQueryParam();
+    const redirect = query.get('redirect') || '/';
 
     const [signup] = useMutation(SIGNUP, {
         onCompleted(result) {
@@ -83,7 +91,7 @@ export default function SignUp() {
     };
 
     const signinButton =
-        <MuiLink to={"/login"} component={Link} underline={"none"}>
+        <MuiLink to={`/login/?redirect=${redirect !== "/" && redirect}`} component={Link} underline={"none"}>
             <Button color={"primary"} variant={"contained"}>
                 Sign in
             </Button>

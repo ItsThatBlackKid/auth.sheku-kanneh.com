@@ -57,7 +57,8 @@ const resolvers = {
                 throw new Error(`User with  email ${input.email} already exists`);
             }
 
-            user = User.create(input);
+            user = await User.create(input);
+
 
             delete user.password;
             return "User created"
@@ -76,11 +77,7 @@ const resolvers = {
         async login(root, {email, password}, {req, res}) {
             // Delete the previous token.
 
-            try {
-                await Token.deleteMany({user_email: email});
-            } catch (e) {
-                // if there is no token, do nothing
-            }
+             Token.deleteMany({user_email: email});
 
 
             const user = await User.findOne({email: email});
@@ -91,13 +88,14 @@ const resolvers = {
                     await Token.create({user_email: user.email, data: token});
                     //max age of 20 days.
                     res.cookie('jwt', token, {
-                        maxAge: 60 * 60 * 24 * 20,
+                        maxAge: (60 * 60 * 24 * 20 * 1000),
                         domain: process.env.DOMAIN || '.test-sheku.com'
                     });
                     res.cookie('user_id', user._id, {
-                        maxAge: 60 * 60 * 24 * 20,
+                        maxAge: (60 * 60 * 24 * 20 * 1000),
                         domain: process.env.DOMAIN || ".test-sheku.com"
                     });
+                    console.log("successful");
                     return "Login successful"
                 } catch (error) {
                     console.log(error);

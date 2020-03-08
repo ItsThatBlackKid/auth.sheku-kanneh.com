@@ -40,8 +40,7 @@ const server = new ApolloServer({
             stack: error.stack
         }
 
-        console.log(error.message);
-        return (params);
+        return (error);
     }
 });
 

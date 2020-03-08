@@ -1,0 +1,3 @@
+[submodule "auth-ui"]
+	path = auth-ui
+	url = git@github.com:ItsThatBlackKid/auth-ui.git

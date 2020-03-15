@@ -43,4 +43,5 @@ services:
       - PORT=8080
       - MONGO_HOST=172.26.0.2:27018
       - DOMAIN
+      - NODE_ENV=production
       - JWT_SECRET

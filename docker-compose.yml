@@ -19,7 +19,7 @@ services:
     environment:
       - MONGO_INITDB_DATABASE=auth_db
     volumes:
-      - ./auth-db-volume:/data/db
+      - auth_db:/data/db
     command: mongod --port 27018
     networks:
       - auth

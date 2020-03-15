@@ -38,3 +38,4 @@ services:
       - VIRTUAL_PORT=8080
       - PORT=8080
       - MONGO_HOST=mongo:27018
+      - JWT_SECRET

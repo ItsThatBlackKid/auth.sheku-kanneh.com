@@ -1,6 +1,6 @@
 import fs from "fs";
-import User from './models/user';
-import Token from './models/token'
+import User from './models/user.js';
+import Token from './models/token.js'
 import jwt from 'jsonwebtoken';
 
 const secret = process.env.JWT_SECRET || fs.readFileSync("./src/rsa");

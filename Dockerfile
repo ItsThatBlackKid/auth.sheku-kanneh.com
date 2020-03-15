@@ -1,4 +1,4 @@
-FROM node:13.2.0-alpine
+FROM node:12.16.1-alpine
 
 RUN mkdir -p /srv/auth/api  && chown -R node:node /srv/auth/
 

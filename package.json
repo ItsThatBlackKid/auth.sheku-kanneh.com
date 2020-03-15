@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "debug": "nodemon ./src/index.js",
-    "start": " node  ./src/index.js"
+    "start": " node --experimental-modules  ./src/index.js"
   },
   "dependencies": {
     "apollo-server": "^2.11.0",

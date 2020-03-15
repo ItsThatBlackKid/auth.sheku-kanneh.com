@@ -1,0 +1,18 @@
+before_script:
+  - docker version
+  - docker-compose version
+
+
+build:
+  script:
+    - docker-compose build --no-cache
+  stage: build
+  tags:
+    - auth
+
+deploy:
+  script:
+    - docker-compose up -d
+  stage: deploy
+  tags:
+    - auth

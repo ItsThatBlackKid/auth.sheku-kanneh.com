@@ -1,0 +1,40 @@
+version: "3.6"
+volumes:
+  auth_data:
+
+networks:
+  nginx-proxy:
+    external: true
+    name: nginx_nginx-proxy
+  auth:
+    name: auth
+    driver: bridge
+
+services:
+  #auth db
+  db:
+    image: mongo
+    restart: always
+    container_name: auth_db
+    volumes:
+      ./data:/data/db
+    networks:
+      - auth
+    ports:
+    - 27017:27018
+
+  auth_api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: auth_api
+    restart: unless-stopped
+    depends_on:
+      - db
+    links:
+      - db
+    environment:
+      - VIRTUAL_HOST=auth.sheku-kanneh.com
+      - VIRTUAL_PORT=8080
+      - PORT=8080
+      - MONGO_HOST=mongo:27018

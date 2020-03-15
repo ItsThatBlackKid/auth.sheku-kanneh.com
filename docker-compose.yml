@@ -16,8 +16,10 @@ services:
     image: mongo
     restart: always
     container_name: auth_db
+    environment:
+      - MONGO_INITDB_DATABASE=auth_db
     volumes:
-      - auth_db:/data/db
+      - ./auth-db-volume:/data/db
     networks:
       - auth
     ports:

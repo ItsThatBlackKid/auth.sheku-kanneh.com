@@ -13,6 +13,8 @@ COPY . .
 
 RUN npm run build
 
+COPY --chown=sheku:sheku . .
+
 EXPOSE 8080
 
 CMD npm run start-build

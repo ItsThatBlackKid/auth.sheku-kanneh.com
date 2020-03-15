@@ -1,4 +1,4 @@
-FROM node:latest-alpine
+FROM node:12.16.1-alpine
 
 RUN mkdir -p /srv/auth/api
 

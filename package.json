@@ -6,7 +6,7 @@
     "start-build": "node ./build/bin/www",
     "clean": "rm -rf ./build",
     "prebuild": "npm run clean",
-    "build": "babel ./bin ./src -d ./build --ignore node_modules, auth-ui",
+    "build": "babel ./bin/** ./src/** -d ./build --ignore node_modules, auth-ui",
     "start": "nodemon ./bin/www --ignore 'auth-frontend' --exec babel-node -e js"
   },
   "dependencies": {

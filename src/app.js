@@ -9,7 +9,7 @@ import mongoose from "mongoose";
 import cors from 'cors'
 
 
-const mongoURI = process.env.MONGO_URI || "mongodb://localhost/auth_db";
+const mongoURI = `mongodb://${process.env.MONGO_HOST || "localhost"}/auth_db`;
 
 mongoose.Promise = global.Promise;
 

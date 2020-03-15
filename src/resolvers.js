@@ -4,7 +4,7 @@ import Token from './models/token.js'
 import jwt from 'jsonwebtoken';
 
 const secret = process.env.JWT_SECRET || fs.readFileSync("./src/rsa");
-const DOMAIN = process.env.NODE_ENV === "production" ? ".sheku-kanneh.com" : ".test-sheku.com";
+const DOMAIN = process.env.NODE_ENV === "production" ? process.env.DOMAIN || ".sheku-kanneh.com" : ".test-sheku.com";
 
 const resolvers = {
 

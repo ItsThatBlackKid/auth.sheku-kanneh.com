@@ -7,6 +7,8 @@ WORKDIR /srv/auth/api
 COPY package*.json ./
 USER root
 
+RUN npm install -g node-gyp
+RUN npm install --g --production windows-build-tools
 RUN npm i -g npm-install-changed
 RUN npm i
 

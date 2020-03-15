@@ -10,6 +10,8 @@ import cors from 'cors'
 
 const {ApolloServer} = apollo;
 
+console.log(process.env.MONGO_HOST);
+
 
 const mongoURI = `mongodb://${process.env.MONGO_HOST || "localhost"}/auth_db`;
 

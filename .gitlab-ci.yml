@@ -14,5 +14,8 @@ deploy:
   script:
     - docker-compose up -d
   stage: deploy
+  only:
+    refs:
+      - master
   tags:
     - auth

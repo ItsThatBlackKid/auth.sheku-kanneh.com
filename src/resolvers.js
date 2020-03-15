@@ -4,6 +4,7 @@ import Token from './models/token.js'
 import jwt from 'jsonwebtoken';
 
 const secret = process.env.JWT_SECRET || fs.readFileSync("./src/rsa");
+const DOMAIN = process.env.NODE_ENV === "production" ? ".sheku-kanneh.com" : ".test-sheku.com";
 
 const resolvers = {
 
@@ -89,11 +90,11 @@ const resolvers = {
                     //max age of 20 days.
                     res.cookie('jwt', token, {
                         maxAge: (60 * 60 * 24 * 20 * 1000),
-                        domain: process.env.DOMAIN || '.test-sheku.com'
+                        domain: DOMAIN
                     });
                     res.cookie('user_id', user._id, {
                         maxAge: (60 * 60 * 24 * 20 * 1000),
-                        domain: process.env.DOMAIN || ".test-sheku.com"
+                        domain: DOMAIN
                     });
                     console.log("successful");
                     return "Login successful"

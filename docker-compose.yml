@@ -1,6 +1,6 @@
 version: "3.6"
 volumes:
-  - auth_data:
+  auth_data:
 
 networks:
   nginx-proxy:
@@ -17,7 +17,7 @@ services:
     restart: always
     container_name: auth_db
     volumes:
-      ./data:/data/db
+      - ./data:/data/db
     networks:
       - auth
     ports:

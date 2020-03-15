@@ -41,5 +41,5 @@ services:
       - VIRTUAL_HOST=auth.sheku-kanneh.com
       - VIRTUAL_PORT=8080
       - PORT=8080
-      - MONGO_HOST=mongo:27018
+      - MONGO_HOST=172.26.0.2:27018
       - JWT_SECRET

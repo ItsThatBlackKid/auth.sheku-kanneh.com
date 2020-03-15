@@ -19,7 +19,11 @@ mongoose.Promise = global.Promise;
 
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    // useUnifiedTopology: true
+}).then(() => {
+    console.log("DB Connected")
+}).catch(err => {
+    console.log("Error:", err.message)
 });
 
 const server = new ApolloServer({

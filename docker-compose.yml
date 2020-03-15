@@ -33,6 +33,8 @@ services:
       - db
     links:
       - db
+    networks:
+      - auth
     environment:
       - VIRTUAL_HOST=auth.sheku-kanneh.com
       - VIRTUAL_PORT=8080

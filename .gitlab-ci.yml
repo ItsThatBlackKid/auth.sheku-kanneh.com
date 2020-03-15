@@ -7,6 +7,9 @@ build:
   script:
     - docker-compose build --no-cache
   stage: build
+  only:
+    refs:
+      - master
   tags:
     - auth
 

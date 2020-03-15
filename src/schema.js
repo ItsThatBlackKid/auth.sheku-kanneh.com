@@ -1,5 +1,5 @@
-
-import { gql} from "apollo-server-express";
+import apollo from 'apollo-server';
+const {gql} = apollo;
 
 const typeDefs = gql`
 

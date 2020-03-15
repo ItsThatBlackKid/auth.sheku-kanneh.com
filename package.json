@@ -1,15 +1,14 @@
 {
   "name": "auth",
+  "type": "module",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start-build": "node ./build/bin/www",
-    "clean": "rm -rf ./build",
-    "prebuild": "npm run clean",
-    "build": "babel ./bin/** ./src/*.js ./src/*/*.js -d ./build --ignore node_modules,auth-ui",
-    "start": "nodemon ./bin/www --ignore 'auth-ui' --exec babel-node -e js"
+    "debug": "nodemon ./src/index.js",
+    "start": " node  ./src/index.js"
   },
   "dependencies": {
+    "apollo-server": "^2.11.0",
     "apollo-server-express": "^2.9.16",
     "bcrypt": "^3.0.7",
     "cookie-parser": "^1.4.4",
